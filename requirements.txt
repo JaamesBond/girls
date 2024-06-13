@@ -1,0 +1,7 @@
+connexion~=2.14.2
+flask~=2.2.5
+connexion[swagger-ui]==2.14.2
+requests==2.31.0
+cryptography~=42.0.5
+Werkzeug~=3.0.2
+Pyrebase~=3.0.27

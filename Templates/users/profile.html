@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ girl['name'] }}'s Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .profile-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .carousel-item img {
+            max-height: 400px;
+            object-fit: cover;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="{{ url_for('static', filename=photos[0]['photo_url'][7:]) }}" alt="{{ girl['name'] }}'s profile photo" class="profile-photo">
+            <div>
+                <h1>{{ girl['name'] }}</h1>
+                <p>Age: {{ girl['age'] }}</p>
+                <p>{{ girl['bio'] }}</p>
+            </div>
+        </div>
+        <h2>Attributes</h2>
+        <ul>
+            <li>Hair Colour: {{ girl['hair_colour'] }}</li>
+            <li>Boobs: {{ girl['boobs'] }}</li>
+            <li>Ass: {{ girl['ass'] }}</li>
+            <li>Race: {{ girl['race'] }}</li>
+            <li>Orientation: {{ girl['orientation'] }}</li>
+            <li>BMI: {{ girl['bmi'] }}</li>
+            <li>Personality: {{ girl['personality'] }}</li>
+            <li>Services: {{ girl['services'] }}</li>
+        </ul>
+        <h2>Photo Gallery</h2>
+        <div id="photoCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for photo in photos %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <img src="{{ url_for('static', filename=photo['photo_url'][7:]) }}" class="d-block w-100" alt="Photo">
+                </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#photoCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#photoCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <h2>Book a Session</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="start_time">Start Time</label>
+                <input type="datetime-local" class="form-control" id="start_time" name="start_time" required>
+            </div>
+            <div class="form-group">
+                <label for="end_time">End Time</label>
+                <input type="datetime-local" class="form-control" id="end_time" name="end_time" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Book</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

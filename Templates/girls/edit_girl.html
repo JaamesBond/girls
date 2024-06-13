@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit girl</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/girls/css/editgirl.css')}}">
+
+</head>
+<h2>Edit Girl</h2>
+{% if girl_updated is defined %}
+    <p>
+    {{ girl.name }} was edited with
+        {% for field in girl %}
+            {% if loop.first %}
+            {% else %}
+                {{ field }} : {{ girl[field] }}
+            {% endif %}
+        {% endfor %}
+    </p>
+{% endif %}
+<form id="girl_data" method="post" enctype=multipart/form-data action="{{ url_for( 'editgirl', id=girl.id ) }}">
+    {% include "girls/girl_data.html" %}
+    <button id="backHome" class="btn">Home</button>
+    <!-- Include the JavaScript file -->
+    <script src="{{ url_for('static', filename='girls/js/home.js') }}"></script>
+</form>

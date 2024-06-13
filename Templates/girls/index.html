@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/girls/css/index.css')}}">
+    <title>Girls Information</title>
+</head>
+<body>
+    <h1>Girls Information</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Hair Colour</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Boobs</th>
+                <th>Ass</th>
+                <th>Race</th>
+                <th>Orientation</th>
+                <th>BMI</th>
+                <th>Personality</th>
+                <th>Services</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for girl in girls %}
+            <tr>
+                <td>{{ girl.id }}</td>
+                <td>{{ girl.name }}</td>
+                <td>{{ girl.age }}</td>
+                <td>{{ girl.hair_colour }}</td>
+                <td>{{ girl.phone }}</td>
+                <td>{{ girl.boobs }}</td>
+                <td>{{ girl.ass }}</td>
+                <td>{{ girl.race }}</td>
+                <td>{{ girl.orientation }}</td>
+                <td>{{ girl.bmi }}</td>
+                <td>{{ girl.personality }}</td>
+                <td>{{ girl.services }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Button for adding a new girl -->
+    <button id="addButton" class="btn">Add New Girl</button>
+    <!-- Include the JavaScript file -->
+    <script src="{{ url_for('static', filename='girls/js/addgirl.js') }}"></script>
+
+    <!-- Form that edits a girl -->
+    <form id="editgirlForm" action="#" method="POST">
+        <label for="id">Girl ID to edit:</label>
+        <input type="number" id="id" name="id" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <!-- Here it calls the js to access the edit page of the specified girl -->
+    <script src="{{ url_for('static', filename='girls/js/editgirl.js') }}"></script>
+
+    <!-- Form that deletes a girl -->
+    <form id="deleteForm" action="/deletegirl/" method="POST">
+        <label for="id">Girl ID to delete:</label>
+        <input type="number" id="id_del" name="id_del" required>
+        <br>
+        <input type="submit" value="Delete">
+    </form>
+
+    <!-- Here it calls the js to access the delete page of the specified girl -->
+    <script src="{{ url_for('static', filename='girls/js/deletegirl.js') }}"></script>
+
+    <form id="logout" action="/logout" method="post">
+        <input type="submit" value="logout">
+    </form>
+
+    <!-- Button for going to the System administration page -->
+    <button id="sys_admin" class="btn">System administration</button>
+    <!-- Include the JavaScript file -->
+    <script src="{{ url_for('static', filename='girls/js/system.js') }}"></script>
+
+</body>
+</html>

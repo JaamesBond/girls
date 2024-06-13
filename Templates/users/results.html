@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='users/css/index.css')}}">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <div class="container">
+    {% for girl in girls %}
+        <!-- Get the photo for the current girl from the dictionary -->
+        {% set girl_photo = girl_photos_dict.get(girl.id) %}
+
+        {% if girl_photo %}
+            <div class="card" style="background-image: url('{{ girl_photo.photo_url }}');">
+                <p class="heading">
+                    {{ girl.name }}
+                </p>
+                <p>
+                    Age {{ girl.age }}
+                </p>
+            </div>
+        {% endif %}
+
+        {% if loop.index % 4 == 0 and loop.index != girls|length %}
+            <div style="width: 100%; height: 20px;"></div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    <a href="/">Back to Search</a>
+</body>
+</html>

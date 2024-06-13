@@ -1,0 +1,95 @@
+<table>
+    <tr>
+        <td>Name:</td><td><input type="text" name="name" id="name" {% if girl is defined %}value="{{ girl.name }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Age:</td><td><input type="number" name="age" id="age" min="18" max="65" {% if girl is defined %}value="{{ girl.age }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Hair Colour:</td><td><select name="hair_colour" id="hair_colour">
+            {% if girl is defined %}
+                <option value="{{ girl.hair_colour }}">{{ girl.hair_colour }}</option>
+            {% endif %}
+            <option value="Brunette">Brunette</option>
+            <option value="Blonde">Blonde</option>
+            <option value="Red">Red</option>
+        <option value="Black">Black</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Phone:</td><td><input type="text" name="phone" id="phone" {% if girl is defined %}value="{{ girl.phone }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Boobs:</td><td><select type="text" name="boobs" id="boobs">
+            {% if girl is defined %}
+                <option value="{{ girl.boobs }}">{{ girl.boobs }}</option>
+            {% endif %}
+            <option value="very small">Very small</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="big">Big</option>
+            <option value="bbw">BBW</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Ass:</td><td><select type="text" name="ass" id="ass">
+            {% if girl is defined %}
+                <option value="{{ girl.ass }}">{{ girl.ass }}</option>
+            {% endif %}
+            <option value="very small">Very Small</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="big">Big</option>
+            <option value="bbw">BBW</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Race:</td><td><select type="text" name="race" id="race">
+            {% if girl is defined %}
+                <option value="{{ girl.race }}">{{ girl.race }}</option>
+            {% endif %}
+            <option value="white">White</option>
+            <option value="black">Black</option>
+            <option value="asian">Asian</option>
+            <option value="latina">Latina</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Orientation:</td><td><select type="text" name="orientation" id="orientation">
+            {% if girl is defined %}
+                <option value="{{ girl.orientation }}">{{ girl.orientation }}</option>
+            {% endif %}
+            <option value="straight">Straight</option>
+            <option value="lesbian">Lesbian</option>
+            <option value="bisexual">Bisexual</option>
+            <option value="transexual">Transexual</option>
+            <option value="pansexual">Pansexual</option>
+            <option value="queer">Queer</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>BMI:</td><td><input type="number" name="bmi" id="bmi" {% if girl is defined %}value="{{ girl.bmi }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Personality:</td><td><select type="text" name="personality" id="personality">
+            {% if girl is defined %}
+                <option value="{{ girl.personality }}">{{ girl.personality }}</option>
+            {% endif %}
+            <option value="friendly">Friendly</option>
+            <option value="dominant">Dominant</option>
+            <option value="submissive">Submissive</option>
+            <option value="brat">Brat</option>
+            <option value="sassy">Sassy</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Services:</td><td><input type="text" name="services" id="services" {% if girl is defined %}value="{{ girl.services }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Upload Photo:</td>
+        <td><input type="file" name="file" id="file"></td>
+    </tr>
+    <tr>
+        <td></td><td><input type="submit" value="Save"></td>
+    </tr>
+</table>

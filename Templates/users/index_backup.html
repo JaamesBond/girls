@@ -1,0 +1,30 @@
+<!DOCTYPE html>GET
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='users/css/index.css')}}">
+    <title>Girls App</title>
+</head>
+<body>
+    <div class="container">
+    {% for girl in girls %}
+        {% for photo in photos %}
+            {% if girl.id == photo.girl_id %}
+                <div class="card" style="background-image: url('{{ photo.photo_url }}');">
+            {% endif %}
+        {% endfor %}
+            <p class="heading">
+                {{ girl.name }}
+            </p>
+            <p>
+                Age {{ girl.age }}
+            </p>
+        </div>
+        {% if loop.index % 4 == 0 and loop.index!= girls|length %}
+            <div style="width: 100%; height: 20px;"></div>
+        {% endif %}
+    {% endfor %}
+    </div>
+</body>
+</html>
