@@ -1,6 +1,6 @@
-#Admin instructions:
+# Admin instructions:
 
-##How to use the administration system:
+## How to use the administration system:
 
 1. What fields are mandatory?
   - Name (full name)
