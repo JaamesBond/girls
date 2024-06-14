@@ -14,4 +14,4 @@
   - Here you can add everything you think is necessary
   - This will be displayed and searchable, so keep it simple and intuitive
 
-For any changes, please don't hasitate to contact me via email [here](m.patrascu@student.fontys.nl)
+For any changes, please don't hasitate to contact me via email: m.patrascu@student.fontys.nl
