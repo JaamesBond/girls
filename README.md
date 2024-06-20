@@ -1,4 +1,4 @@
-# Student Management System 3000
+# Erotic Palace
 
 Before you can use the these apps, make sure you have the requirements installed:  
 Windows: `py -m pip install -r requirements.txt`  
